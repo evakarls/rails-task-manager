@@ -1,9 +1,22 @@
-<h1>This is your selected task:</h1>
-<ul>
-  <li><strong><%= @task.title %></strong></li>
-  <li><%= @task.details %></li>
-  <li>Task completed: <%= @task.completed %></li>
-  <li><%= link_to "Delete", task_path(@task),
-      method: :delete,
-      data: { confirm: "Are you sure?" } %></li>
-</ul>
+<div class="container">
+  <div id="task-list">
+  <h1><%= @task.title %></h1>
+    <p id="task-details"><%= @task.details %></p>
+    <% if @task.completed %>
+      <p>Task completed: <i class="far fa-check-square"></i></p>
+    <% else %>
+      <p>This task is still not completed: <i class="far fa-square"></i></p>
+    <% end %>
+    <div id="buttons">
+      <div> <%= link_to "Delete this task", task_path(@task), method: :delete,
+          data: { confirm: "Are you sure you want to delete this task?" }, :class => "btn btn-danger" %>
+      </div>
+      <div> <%= link_to "Edit this task", edit_path, :class => "btn btn-primary" %>
+      </div>
+      <div> <%= link_to "Back to list", tasks_path, :class => "btn btn-secondary" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+

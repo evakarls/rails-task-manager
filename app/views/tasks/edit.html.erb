@@ -1,12 +1,19 @@
-<%= form_for(@task) do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-
-  <%= f.label :details %>
-  <%= f.text_field :details %>
-
-  <%= f.check_box :completed %>
-  <%= label_tag(:completed, "Task completed") %>
-
-  <%= f.submit %>
-<% end %>
+<div class="container">
+  <div id="task-list">
+    <%= form_for(@task) do |f| %>
+      <div class="form-group">
+        <%= f.label :title %>
+        <%= f.text_field :title, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :details %>
+        <%= f.text_field :details, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.check_box :completed %>
+        <%= label_tag(:completed, "Task completed", class: 'form-control') %>
+      </div>
+      <%= f.submit class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
